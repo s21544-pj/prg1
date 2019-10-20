@@ -5,9 +5,10 @@ int main()
 {
 //Mateusz Hinca
 //Mariusz Krzyżopolski
-int a;
-cin>>a;
-for(int i=0;i<=a;a--){
-cout<<a;
-}
+
+int *i;
+int j=123;
+i=&j;
+cout<<*i;
+
 }
