@@ -7,8 +7,9 @@ int main()
 	cin>>a;
 	do
 	{
-	cout<<"zgadnij liczbe"<< endl;
 	cin>>x;
+	if(x>a)cout<<"za duzo";
+	if(x<a)cout<<"za malo";
 	}while(x!=a);
 	cout<<"end";
 	return 0;
