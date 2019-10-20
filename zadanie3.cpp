@@ -5,6 +5,7 @@ int main()
 {
 	//Mateusz Hinca
 	//Mariusz Krzyżopolski
+
 	int a,x;
 	cin>>a;
 	do
