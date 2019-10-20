@@ -5,7 +5,9 @@ int main()
 {
 int a;
 cin>>a;
-for(int i=0;i<=a;a--){
-cout<<a;
+for(int i=0;i<a-1;i++){
+cout<<" ";
 }
+cout <<"*";
+
 }
