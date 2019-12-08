@@ -1,2 +1,8 @@
-
-                Pomieszcze nr1
+***
+*   Pomieszcze nr1
+*
+*
+***
+1    go north
+2    go west
+3    go east
