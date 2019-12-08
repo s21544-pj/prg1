@@ -5,6 +5,10 @@ using namespace std;
 
 class Game {
 public:
+    void Start(int n){
+        Player p1;
+        p1.setPlayerPosition(n);
+    }
     void setRooms(string n){
         Room r;
         r.setLayout(n);
@@ -12,8 +16,9 @@ public:
     }
     void View(int a){
         Rooms[a].viewRoom();
+
     }
-    
+
 private:
     vector <Room> Rooms;
 };
