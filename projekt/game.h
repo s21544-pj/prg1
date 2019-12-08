@@ -5,8 +5,29 @@ using namespace std;
 
 class Game {
 public:
+    int logic(string d){
+    int r;
+    switch(p1.getPlayerPosition()){
+    case 0:
+    if(d=="1"){
+    p1.setPlayerPosition(1);
+    r=1;
+    }else if(d=="2"){
+
+    }else if(d=="3"){
+
+    }
+    return r;
+    break;
+    case 1:
+    break;
+    case 2:
+    break;
+    default:
+    break;
+    }
+    }
     void Start(int n){
-        Player p1;
         p1.setPlayerPosition(n);
     }
     void setRooms(string n){
@@ -20,5 +41,6 @@ public:
     }
 
 private:
+    Player p1;
     vector <Room> Rooms;
 };
