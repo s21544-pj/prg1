@@ -7,18 +7,17 @@ int main (){
 string decision;
 int room;
 Game game1;
-game1.setRooms("r0");
-game1.setRooms("r1");
-game1.setRooms("r2");
-game1.setRooms("r3");
-game1.setRooms("r100");
+game1.Start();
 game1.View(0);
-game1.Start(0);
+
 while(1){
 cin>>decision;
-room=logic(decision,game1.getplayer());
+room=game1.passLogic(decision);
 system("clear");
-cout<<"Twoje zycie:"<<game1.getplayer().getPlayerLife()<<endl;
+cout<<"Twoje zycie:"<<game1.getPlayer().getLife()<<endl;
 game1.View(room);
+if(room==5){
+cout<<endl<<"zycie przeciwnika"<<game1.getEnemy().getLife();
+}
 }
 };
