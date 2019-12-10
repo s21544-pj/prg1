@@ -1,0 +1,3 @@
+'''
+' Na progu otrzymujesz cios..
+'''

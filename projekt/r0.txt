@@ -1,0 +1,8 @@
+***
+*   Pomieszcze nr1
+*
+*
+***
+1    idz na polnoc
+2    idz na zachow
+3    idz na wschod

@@ -1,34 +1,13 @@
 #include "rooms.h"
-#include "player.h"
+#include "logic.cpp"
 
 using namespace std;
 
 class Game {
 public:
-    int logic(string d){
-    int r;
-    switch(p1.getPlayerPosition()){
-    case 0:
-    if(d=="1"){
-    p1.setPlayerPosition(1);
-    r=1;
-    }else if(d=="2"){
-
-    }else if(d=="3"){
-
-    }
-    return r;
-    break;
-    case 1:
-    break;
-    case 2:
-    break;
-    default:
-    break;
-    }
-    }
     void Start(int n){
         p1.setPlayerPosition(n);
+        p1.setPlayerLife(50);
     }
     void setRooms(string n){
         Room r;
@@ -39,7 +18,9 @@ public:
         Rooms[a].viewRoom();
 
     }
-
+    Player getplayer(){
+        return p1;
+    }
 private:
     Player p1;
     vector <Room> Rooms;
