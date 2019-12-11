@@ -1,7 +1,7 @@
 #include <string>
 #include "player.h"
 
-int logic(string d,Player& p1,Person& enemy){
+int logic(string d,Player& p1,Person& enemy,int re){
     int r;
     switch(p1.getPlayerPosition()){
     case 0:
@@ -17,21 +17,22 @@ int logic(string d,Player& p1,Person& enemy){
     enemy.setLife(20);
     enemy.Back(4);
     if(d=="1"){
-        r=5;
+        r=re-2;
     }else if(d=="2"){
         r=0;
     }
     break;
     case 2:
     break;
+    //need manualy change value of fight room
     case 5:
-    p1.getDamage(5);
+    p1.getDamage(50);
     enemy.getDamage(10);
     if(enemy.isDead()){
 
         r=enemy.getBack();
     }else{
-        r=5;
+        r=re-2;
     }
     break;
     
@@ -40,7 +41,7 @@ int logic(string d,Player& p1,Person& enemy){
     }
     if(p1.isDead()){
     //last index of table
-    r=6;
+    r=re-1;
     }
     return r;
 }

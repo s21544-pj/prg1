@@ -30,7 +30,7 @@ public:
         return Enemy;
     }
     int passLogic(string d){
-        return logic(d,p1,Enemy);
+        return logic(d,p1,Enemy,Rooms.size());
     }
 private:
     Person Enemy;
