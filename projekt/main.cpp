@@ -13,7 +13,6 @@ while(1){
 cin>>decision;
 room=game1.passLogic(decision);
 system("clear");
-cout<<room;
 cout<<"Twoje zycie:"<<game1.getPlayer().getLife()<<endl;
 game1.View(room);
 if(room==5){

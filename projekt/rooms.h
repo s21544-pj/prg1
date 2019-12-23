@@ -7,7 +7,6 @@ using namespace std;
 
 class Room {
 public:
-    //virtual int go() = 0;
     Room(string n,int a=-1,int b=-1,int c=-1){
         if(a>=0)roomDirection.push_back(a);
         if(b>=0)roomDirection.push_back(b);
@@ -29,7 +28,7 @@ protected:
     string Layout;
 };
 
-class Room1:public Room{
+class RoomCorr:public Room{
 using Room::Room;
 public:
     int go(string d){
@@ -42,3 +41,13 @@ public:
         }
     }
 };
+
+/*class RoomFight:public Room{
+    public:
+    int fight(string d,Player& p,Person& e){
+        if(d=="a"){
+            e.getDamage(1);
+            p.getDamage(1);
+        }
+    }
+};*/
