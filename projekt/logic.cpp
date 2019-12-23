@@ -14,6 +14,7 @@ int logic(string d,Player& p1,Person& enemy,int re){
     }
     break;
     case 1:
+    //damage based on "type" of monster?
     enemy.setLife(20);
     enemy.Back(4);
     if(d=="1"){
@@ -29,7 +30,6 @@ int logic(string d,Player& p1,Person& enemy,int re){
     p1.getDamage(50);
     enemy.getDamage(10);
     if(enemy.isDead()){
-
         r=enemy.getBack();
     }else{
         r=re-2;

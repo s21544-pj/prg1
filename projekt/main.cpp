@@ -7,13 +7,13 @@ int main (){
 string decision;
 int room;
 Game game1;
-game1.Start();
-game1.View(0);
+game1.View(1);
 
 while(1){
 cin>>decision;
 room=game1.passLogic(decision);
 system("clear");
+cout<<room;
 cout<<"Twoje zycie:"<<game1.getPlayer().getLife()<<endl;
 game1.View(room);
 if(room==5){

@@ -5,19 +5,16 @@ using namespace std;
 
 class Game {
 public:
-    void Start(){
-        for(int i=0;i<5;i++){
-            setRooms("r"+to_string(i));
-        }
-        setRooms("rWalka");
-        setRooms("rEnd");
+    Game(){
+        Room1 f("rWalka");
+        Room1 r0("r0",2,3,4);
+        Room1 r1("r1",0,1);
+        Rooms.push_back(f);
+        Rooms.push_back(r0);
+        Rooms.push_back(r1);
+        
         p1.setPlayerPosition(0);
         p1.setLife(50);
-    }
-    void setRooms(string n){
-        Room r;
-        r.setLayout(n);
-        Rooms.push_back(r);
     }
     void View(int a){
         p1.setPlayerPosition(a);
@@ -30,10 +27,11 @@ public:
         return Enemy;
     }
     int passLogic(string d){
-        return logic(d,p1,Enemy,Rooms.size());
+        return Rooms[p1.getPlayerPosition()].go(d);
+        //return logic(d,p1,Enemy,Rooms.size());
     }
 private:
     Person Enemy;
     Player p1;
-    vector <Room> Rooms;
+    vector <Room1> Rooms;
 };
