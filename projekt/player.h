@@ -8,6 +8,13 @@ class Player:public Person{
     int getPlayerPosition(){
         return player_location;
     }
+    void setTempPos(int b){
+        tempPos=b;
+    }
+    int getTempPos(){
+        return tempPos;
+    }
     private:
+    int tempPos;
     int player_location;
 };

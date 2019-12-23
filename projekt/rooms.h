@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream> 
 #include <iostream>
+#include "player.h"
 
 using namespace std;
 
@@ -42,12 +43,13 @@ public:
     }
 };
 
-/*class RoomFight:public Room{
+class RoomFight:public Room{
+    using Room::Room;
     public:
-    int fight(string d,Player& p,Person& e){
-        if(d=="a"){
-            e.getDamage(1);
-            p.getDamage(1);
+    int fight(string f,Player& p,Person& e){
+        if(f=="a"){
+            e.getDamage(10+p.getDMGWe());
+            p.getDamage(10+e.getDMGWe());
         }
     }
-};*/
+};

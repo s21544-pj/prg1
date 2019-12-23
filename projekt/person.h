@@ -6,12 +6,6 @@ class Person{
     int getLife(){
         return life;
     }
-    void Back(int b){
-        room=b;
-    }
-    int getBack(){
-        return room;
-    }
     bool isDead(){
         if(life>0){
             return 0;
