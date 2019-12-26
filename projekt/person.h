@@ -23,14 +23,7 @@ class Person{
     int getDMGWe(){
         return dmgWea;
     }
-    void setRoom(int e){
-        room=e;
-    }
-    int getRoom(){
-        return room;
-    }
     protected:
     int dmgWea;
-    int room;
     int life;
 };
