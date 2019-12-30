@@ -1,18 +1,19 @@
 #include "person.h"
 
+
 class Player:public Person{
     public:
-    void setPlayerPosition(int a){
-        player_location=a;
+    void setPlayerPosition(RoomCorr* a){
+        *player_location=*a;
     }
-    int getPlayerPosition(){
-        return player_location;
+    RoomCorr getPlayerPosition(){
+        return *player_location;
     }
-    void setTempPos(int b){
-        tempPos=b;
+    void setTempPos(RoomCorr* b){
+        *tempPos=*b;
     }
-    int getTempPos(){
-        return tempPos;
+    RoomCorr getTempPos(){
+        return *tempPos;
     }
     void setMagic(int c){
         magic=c;
@@ -29,6 +30,6 @@ class Player:public Person{
     private:
     int magic;
     int money;
-    int tempPos;
-    int player_location;
+    RoomCorr* tempPos;
+    RoomCorr* player_location;
 };

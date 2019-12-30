@@ -2,11 +2,11 @@
 #include <string>
 #include <fstream> 
 #include <iostream>
-#include "player.h"
-#include "enemy.h"
 #include <time.h>
 #include <stdio.h> 
 #include <stdlib.h> 
+#include "player.h"
+#include "enemy.h"
 
 using namespace std;
 
@@ -31,22 +31,23 @@ protected:
 
 class RoomCorr:public Room{
 public:
-    RoomCorr(string n,int a=-1,int b=-1,int c=-1,int f=-1,int tr=-1,string type="",int value=-1):Room(n){
-    if(a>=0)roomDirection.push_back(a);
-        if(b>=0)roomDirection.push_back(b);
-        if(c>=0)roomDirection.push_back(c);
-        if(f>=0)fight=f;
-        if(tr>=0)
+    RoomCorr(string n):Room(n){};
+    void setRoomAtrib(RoomCorr* a=NULL,RoomCorr* b=NULL,RoomCorr* c=NULL,int f=-1,int tr=-1,string type="",int value=-1){
+        if(&a!=NULL)roomDirection.push_back(a);
+        if(&b!=NULL)roomDirection.push_back(b);
+        if(&c!=NULL)roomDirection.push_back(c);
+        if(f!=-1)fight=f;
+        if(tr!=-1)
         {
             TestDificult=tr;
             RewardType=type;
             RewardValue=value;
         };
-}
+    }
     int getTr(){
         return TestDificult;
     }
-    int Test(Player& p){
+    RoomCorr* Test(Player& p){
         //less or equal is sucess
         float t;
         if(RewardType=="magic") t=p.getMagic();
@@ -66,7 +67,7 @@ public:
         if(t<0) return roomDirection[2];
 
     }
-    int go(string d){
+    RoomCorr* go(string d){
         if(d=="1"){
             return roomDirection[0];
         }else if(d=="2"){
@@ -83,17 +84,17 @@ public:
     int TestDificult;
     int RewardValue;
     string RewardType;
-    vector <int> roomDirection;
+    vector <RoomCorr*> roomDirection;
 };
 
 class RoomFight:public Room{
     public:
-    RoomFight(string n,int l,int r,int d):Room(n){
+    RoomFight(string n,int l,RoomCorr* r,int d):Room(n){
         e.setLife(l);
         e.setRoom(r);
         e.setDMG(d);
     };
-    int fight(string f,Player& p){
+    RoomCorr* fight(string f,Player& p){
         if(f=="a"){
             e.getDamage(p.getDMGWe()*2);
             p.getDamage(e.getDMGWe()*2);
@@ -104,12 +105,9 @@ class RoomFight:public Room{
             e.getDamage(p.getDMGWe()/2);
             p.getDamage(e.getDMGWe()/2);
             }
-            if(p.isDead()) return 8;
-            else
             if(e.isDead()) return e.getRoom();
             else {
                 cout<<"zycie przeciwnika: "<<e.getLife();
-                return 0;
         }
     }
     private:

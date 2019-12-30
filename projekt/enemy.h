@@ -1,12 +1,12 @@
 class Enemy:public Person{   
 public:
-    void setRoom(int e){
+    void setRoom(RoomCorr* e){
         room=e;
     }
-    int getRoom(){
+    RoomCorr* getRoom(){
         return room;
     }
 private:
-int room;
+RoomCorr* room;
 };
 
