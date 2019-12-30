@@ -1,9 +1,9 @@
-#include "game.h"
-#include <cstdlib>
+#include "game.cpp"
 
 using namespace std;
 
 int main (){
+srand(time(0));
 string decision;
 int room;
 Game game1;

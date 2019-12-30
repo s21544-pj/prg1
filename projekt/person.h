@@ -1,6 +1,6 @@
 class Person{
     public:
-    void setLife(int l){
+    void setLife(float l){
         life=l;
     }
     int getLife(){
@@ -25,5 +25,5 @@ class Person{
     }
     protected:
     int dmgWea;
-    int life;
+    float life;
 };
