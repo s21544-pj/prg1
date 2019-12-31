@@ -1,3 +1,4 @@
+
 class Enemy:public Person{   
 public:
     void setRoom(RoomCorr* e){
@@ -7,6 +8,6 @@ public:
         return room;
     }
 private:
-RoomCorr* room;
+    RoomCorr* room;
 };
 

@@ -4,9 +4,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdio.h> 
-#include <stdlib.h> 
-#include "player.h"
-#include "enemy.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -47,25 +45,28 @@ public:
     int getTr(){
         return TestDificult;
     }
-    RoomCorr* Test(Player& p){
+    string getRewardType(){
+        return RewardType;
+    }
+    RoomCorr* Test(float t){
         //less or equal is sucess
-        float t;
-        if(RewardType=="magic") t=p.getMagic();
-        if(RewardType=="money") t=p.getMoney();
-        if(RewardType=="dmg") t=p.getDMGWe();
-        if(RewardType=="life") t=p.getLife();
             if(t/TestDificult<=(rand()%99)+1){
                 t=RewardValue;
             }else{
                 t=RewardValue*(-1);
             };
-        if(RewardType=="magic") p.setMagic(p.getMagic()+t);
-        if(RewardType=="money") p.setMoney(p.getMoney()+t);
-        if(RewardType=="dmg") p.setDMG(p.getDMGWe()+t);
-        if(RewardType=="life") p.setLife(p.getLife()+t);
-        if(t>0) return roomDirection[1];
-        if(t<0) return roomDirection[2];
+        if(t>0) {
+            result = t;
+            return roomDirection[1];
+        };
+        if(t<0) {
+            result = t;
+            return roomDirection[2];
+        };
 
+    }
+    int getResult(){
+        return result;
     }
     RoomCorr* go(string d){
         if(d=="1"){
@@ -80,6 +81,7 @@ public:
         return fight;
     }
     private:
+    int result;
     int fight;
     int TestDificult;
     int RewardValue;

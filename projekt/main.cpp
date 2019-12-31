@@ -9,6 +9,7 @@ RoomCorr* room;
 Game game1;
 
 
+
 while(1){
 cin>>decision;
 room=game1.passLogic(decision);

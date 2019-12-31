@@ -1,4 +1,5 @@
-#include "rooms.h"
+#include "player.h"
+#include "enemy.h"
 
 using namespace std;
 
@@ -37,11 +38,11 @@ public:
 
     void View(RoomCorr* a){
         //cannot if with pointers?
-    if((&p1.getPlayerPosition()!=&f)&&(&p1.getTempPos())!=&p1.getPlayerPosition()&&a==&f){
-        p1.setTempPos(&p1.getPlayerPosition());
+    if(((p1.getPlayerPosition())!=&f)&&(p1.getTempPos())!=(p1.getPlayerPosition())&&a==&f){
+        p1.setTempPos(p1.getPlayerPosition());
     }
     if(a==&f){
-        Rf[p1.getTempPos().getFightNumber()].viewRoom();
+        Rf[(*p1.getTempPos()).getFightNumber()].viewRoom();
     }
     p1.setPlayerPosition(a);
     (*a).viewRoom();
@@ -54,16 +55,28 @@ public:
     RoomCorr* passLogic(string d){
         if(p1.isDead()) return &rEnd; else {
 
-        if(&p1.getPlayerPosition()==&f){
-            return Rf[(p1.getTempPos()).getFightNumber()].fight(d,p1);
+        if(p1.getPlayerPosition()==&f){
+            return Rf[(*p1.getTempPos()).getFightNumber()].fight(d,p1);
         }else
-        if(p1.getPlayerPosition().getTr()<0){
-            return p1.getPlayerPosition().go(d);
+        if((*p1.getPlayerPosition()).getTr()<0){
+            return (*p1.getPlayerPosition()).go(d);
         }else{
             if(d=="1"){
-                return p1.getPlayerPosition().go(d);
+                return (*p1.getPlayerPosition()).go(d);
             }else{
-                return p1.getPlayerPosition().Test(p1);
+                string RewardType = (*p1.getPlayerPosition()).getRewardType();
+                float t;
+                if(RewardType=="magic") t=p1.getMagic();
+                if(RewardType=="money") t=p1.getMoney();
+                if(RewardType=="dmg") t=p1.getDMGWe();
+                if(RewardType=="life") t=p1.getLife();
+                RoomCorr* n=(*p1.getPlayerPosition()).Test(t);
+                t=(*p1.getPlayerPosition()).getResult();
+                if(RewardType=="magic") p1.setMagic(p1.getMagic()+t);
+                if(RewardType=="money") p1.setMoney(p1.getMoney()+t);
+                if(RewardType=="dmg") p1.setDMG(p1.getDMGWe()+t);
+                if(RewardType=="life") p1.setLife(p1.getLife()+t);
+                return n;
             }
         }
         }

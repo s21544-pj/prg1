@@ -1,19 +1,18 @@
 #include "person.h"
 
-
 class Player:public Person{
     public:
     void setPlayerPosition(RoomCorr* a){
         *player_location=*a;
     }
-    RoomCorr getPlayerPosition(){
-        return *player_location;
+    RoomCorr* getPlayerPosition(){
+        return player_location;
     }
     void setTempPos(RoomCorr* b){
         *tempPos=*b;
     }
-    RoomCorr getTempPos(){
-        return *tempPos;
+    RoomCorr* getTempPos(){
+        return tempPos;
     }
     void setMagic(int c){
         magic=c;
