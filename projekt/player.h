@@ -3,13 +3,13 @@
 class Player:public Person{
     public:
     void setPlayerPosition(RoomCorr* a){
-        *player_location=*a;
+        player_location=a;
     }
     RoomCorr* getPlayerPosition(){
         return player_location;
     }
     void setTempPos(RoomCorr* b){
-        *tempPos=*b;
+        tempPos=b;
     }
     RoomCorr* getTempPos(){
         return tempPos;

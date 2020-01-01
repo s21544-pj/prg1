@@ -3,9 +3,36 @@
 
 using namespace std;
 
-RoomCorr f("rWalka");
+class RoomFight:public Room{
+    public:
+    RoomFight(string n,int l,RoomCorr* r,int d):Room(n){
+        e.setLife(l);
+        e.setRoom(r);
+        e.setDMG(d);
+    };
+    RoomCorr* fight(string f,Player& p){
+        if(f=="a"){
+            e.getDamage(p.getDMGWe()*2);
+            p.getDamage(e.getDMGWe()*2);
+            }else if(f=="p"){
+            e.getDamage(p.getDMGWe());
+            p.getDamage(e.getDMGWe());
+            }else if(f=="d"){
+            e.getDamage(p.getDMGWe()/2);
+            p.getDamage(e.getDMGWe()/2);
+            }
+            if(e.isDead()) return e.getRoom();
+            else {
+                cout<<"zycie przeciwnika: "<<e.getLife();
+        }
+    }
+    private:
+        Enemy e;
+};
+
+    RoomCorr f("rWalka");
     RoomCorr r1("r1");
-    //fight = 0,back,-1,enemy room(Rf)
+    //
     RoomCorr r2("r2");
     /*
     test room =layout of room, back, success, failure, -1,test dificult(1,2,5),
@@ -25,27 +52,32 @@ class Game {
 public:
     Game(){
     Rf.push_back(Rd);
-    f.setRoomAtrib(&f);
+    f.setRoomAtrib(&f,&f,&f);
     r1.setRoomAtrib(&r2,&r3,&r4);
-    r2.setRoomAtrib(&r1,&f);
+    r2.setRoomAtrib(&f,&r1,&rEnd,0);
     r3.setRoomAtrib(&r1,&r6,&r7,-1,1,"money",10);
+    r4.setRoomAtrib(&r1,&r1,&r1);
+    r5.setRoomAtrib(&r1,&r1,&r1);
+    r6.setRoomAtrib(&r1,&r1,&r1);
+    r7.setRoomAtrib(&r1,&r1,&r1);
+    rEnd.setRoomAtrib(&r1,&r1,&r1);
     p1.setMagic(30);
     p1.setMoney(30);
     p1.setDMG(30);
     p1.setPlayerPosition(&r1);
     p1.setLife(50);
+    View(&r1);
     }
 
     void View(RoomCorr* a){
-        //cannot if with pointers?
     if(((p1.getPlayerPosition())!=&f)&&(p1.getTempPos())!=(p1.getPlayerPosition())&&a==&f){
         p1.setTempPos(p1.getPlayerPosition());
     }
     if(a==&f){
-        Rf[(*p1.getTempPos()).getFightNumber()].viewRoom();
+        Rf[(p1.getTempPos())->getFightNumber()].viewRoom();
     }
     p1.setPlayerPosition(a);
-    (*a).viewRoom();
+    a->viewRoom();
     }
 
     Player getPlayer(){
@@ -56,29 +88,29 @@ public:
         if(p1.isDead()) return &rEnd; else {
 
         if(p1.getPlayerPosition()==&f){
-            return Rf[(*p1.getTempPos()).getFightNumber()].fight(d,p1);
-        }else
-        if((*p1.getPlayerPosition()).getTr()<0){
-            return (*p1.getPlayerPosition()).go(d);
-        }else{
+            return Rf[(p1.getTempPos())->getFightNumber()].fight(d,p1);
+        }
+        //if((p1.getPlayerPosition())->getTr()<0){
+            return (p1.getPlayerPosition())->go(d);
+        /*}else{
             if(d=="1"){
-                return (*p1.getPlayerPosition()).go(d);
+                return (p1.getPlayerPosition())->go(d);
             }else{
-                string RewardType = (*p1.getPlayerPosition()).getRewardType();
+                string RewardType = (p1.getPlayerPosition())->getRewardType();
                 float t;
                 if(RewardType=="magic") t=p1.getMagic();
                 if(RewardType=="money") t=p1.getMoney();
                 if(RewardType=="dmg") t=p1.getDMGWe();
                 if(RewardType=="life") t=p1.getLife();
-                RoomCorr* n=(*p1.getPlayerPosition()).Test(t);
-                t=(*p1.getPlayerPosition()).getResult();
+                t = (p1.getPlayerPosition())->Test(t);
                 if(RewardType=="magic") p1.setMagic(p1.getMagic()+t);
                 if(RewardType=="money") p1.setMoney(p1.getMoney()+t);
                 if(RewardType=="dmg") p1.setDMG(p1.getDMGWe()+t);
                 if(RewardType=="life") p1.setLife(p1.getLife()+t);
-                return n;
-            }
-        }
+                return (p1.getPlayerPosition())->getResult();
+            }*/
+        
+        
         }
     }
 private:
@@ -87,3 +119,4 @@ private:
     Player p1;
     //vector <RoomCorr>RoomsCorr;
 };
+

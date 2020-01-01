@@ -1,7 +1,8 @@
-///
-/ Pomieszczenie nr2
-/
-/ Widzisz rozpedzaca w twoim kierunku fretke co robisz?
-///
-1. Atakuje
-2. Uciekam
+***
+*   Pomieszcze nr1
+*
+*
+***
+1    idz na polnoc
+2    idz na zachow
+3    idz na wschod
