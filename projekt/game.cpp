@@ -32,12 +32,7 @@ class RoomFight:public Room{
 
     RoomCorr f("rWalka");
     RoomCorr r1("r1");
-    //
     RoomCorr r2("r2");
-    /*
-    test room =layout of room, back, success, failure, -1,test dificult(1,2,5),
-    Reward type(magic,money,life,dmg),Reward value 
-    */
     RoomCorr r3("r3");
     RoomCorr r4("r4");
     RoomCorr r5("r5");
@@ -54,7 +49,12 @@ public:
     Rf.push_back(Rd);
     f.setRoomAtrib(&f,&f,&f);
     r1.setRoomAtrib(&r2,&r3,&r4);
+    //0,back,cos innego,fight room
     r2.setRoomAtrib(&f,&r1,&rEnd,0);
+    /*
+    test room =layout of room, back, success, failure, -1,test dificult(1,2,5),
+    Reward type(magic,money,life,dmg),Reward value 
+    */
     r3.setRoomAtrib(&r1,&r6,&r7,-1,1,"money",10);
     r4.setRoomAtrib(&r1,&r1,&r1);
     r5.setRoomAtrib(&r1,&r1,&r1);
@@ -90,9 +90,7 @@ public:
         if(p1.getPlayerPosition()==&f){
             return Rf[(p1.getTempPos())->getFightNumber()].fight(d,p1);
         }
-        //if((p1.getPlayerPosition())->getTr()<0){
-            return (p1.getPlayerPosition())->go(d);
-        /*}else{
+        if((p1.getPlayerPosition())->getTr()>0){
             if(d=="1"){
                 return (p1.getPlayerPosition())->go(d);
             }else{
@@ -108,9 +106,9 @@ public:
                 if(RewardType=="dmg") p1.setDMG(p1.getDMGWe()+t);
                 if(RewardType=="life") p1.setLife(p1.getLife()+t);
                 return (p1.getPlayerPosition())->getResult();
-            }*/
-        
-        
+            }
+            }
+            return (p1.getPlayerPosition())->go(d);
         }
     }
 private:
