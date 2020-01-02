@@ -44,6 +44,7 @@ class RoomFight:public Room{
                 if(e.getReward()=="money") p.setMoney(p.getMoney()+e.getValue());
                 if(e.getReward()=="dmg") if(e.getValue()>p.getDMGWe()) p.setDMG(e.getValue());
                 if(e.getReward()=="life") p.setLife(p.getLife()+e.getValue());
+                p.setAccuracy(p.getAccuracy()+5);
                 return e.getRoom();
             }
             else {
