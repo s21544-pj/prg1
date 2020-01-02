@@ -1,1 +1,4 @@
 **** WALKA ****
+Żeby atakować bez osłony naciśnij 1,
+Żeby zaatakować w normalny sposób wciśnij 2,
+Żeby się bronić wciśij 3

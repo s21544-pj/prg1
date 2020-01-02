@@ -3,7 +3,7 @@
 using namespace std;
 
 int main (){
-srand(time(0));
+
 string decision;
 RoomCorr* room;
 Game game1;
@@ -18,6 +18,7 @@ cout<<endl<<"Twoje zycie:"<<game1.getPlayer().getLife()<<endl;
 cout<<"Twoje pieniadze:"<<game1.getPlayer().getMoney()<<endl;
 cout<<"Twoja magia:"<<game1.getPlayer().getMagic()<<endl;
 cout<<"Dmg Twojej Broni:"<<game1.getPlayer().getDMGWe()<<endl;
+cout<<"Twoja Celność: "<<game1.getPlayer().getAccuracy()<<"%"<<endl;
 game1.View(room);
 }
 

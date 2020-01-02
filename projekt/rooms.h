@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdio.h> 
 #include <stdlib.h>
+#include <math.h>
 
 using namespace std;
 
@@ -50,14 +51,13 @@ public:
     }
     float Test(float t){
         //less or equal is sucess
-            if(t/TestDificult<=(rand()%99)+1){
-                result = roomDirection[1];
-                return RewardValue;
-                
-            }else{
+        srand(time(0));
+            if(floor(t/TestDificult)<=(rand()%99)+1){
                 result = roomDirection[2];
                 return RewardValue*(-1);
-                
+            }else{
+                result = roomDirection[1];
+                return RewardValue;
             };
 
     }

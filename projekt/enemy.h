@@ -7,7 +7,21 @@ public:
     RoomCorr* getRoom(){
         return room;
     }
+    void setReward(string a){
+        Reward=a;
+    }
+    string getReward(){
+        return Reward;
+    }
+    void setValue(int b){
+        value=b;
+    }
+    int getValue(){
+        return value;
+    }
 private:
+    string Reward;
+    int value;
     RoomCorr* room;
 };
 

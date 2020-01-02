@@ -3,33 +3,6 @@
 
 using namespace std;
 
-class RoomFight:public Room{
-    public:
-    RoomFight(string n,int l,RoomCorr* r,int d):Room(n){
-        e.setLife(l);
-        e.setRoom(r);
-        e.setDMG(d);
-    };
-    RoomCorr* fight(string f,Player& p){
-        if(f=="a"){
-            e.getDamage(p.getDMGWe()*2);
-            p.getDamage(e.getDMGWe()*2);
-            }else if(f=="p"){
-            e.getDamage(p.getDMGWe());
-            p.getDamage(e.getDMGWe());
-            }else if(f=="d"){
-            e.getDamage(p.getDMGWe()/2);
-            p.getDamage(e.getDMGWe()/2);
-            }
-            if(e.isDead()) return e.getRoom();
-            else {
-                cout<<"zycie przeciwnika: "<<e.getLife();
-        }
-    }
-    private:
-        Enemy e;
-};
-
     RoomCorr f("rWalka");
     RoomCorr r1("r1");
     RoomCorr r2("r2");
@@ -38,9 +11,51 @@ class RoomFight:public Room{
     RoomCorr r5("r5");
     RoomCorr r6("r6");
     RoomCorr r7("r7");
+    RoomCorr r8("r8");
+    RoomCorr r9("r9");
     RoomCorr rEnd("rEnd");
-    //fight declaration = life,room,dmg
-    RoomFight Rd("p0",20,&r5,10);
+
+class RoomFight:public Room{
+    public:
+    RoomFight(string n,int l,RoomCorr* r,int d,string re,int v,int ac):Room(n){
+        e.setLife(l);
+        e.setRoom(r);
+        e.setDMG(d);
+        e.setReward(re);
+        e.setValue(v);
+        e.setAccuracy(ac);
+    };
+    RoomCorr* fight(string f,Player& p){
+            srand(time(0));
+            int acc=(rand()%99)+1;
+            int accEn=(rand()%99)+1;
+            if(f=="1"){
+            if(acc<(p.getAccuracy()+10)) e.getDamage(((p.getDMGWe()+rand()%9)+1)*2); else cout << "Nie trafiłeś | "; 
+            if(acc<(e.getAccuracy()+10)) p.getDamage(((e.getDMGWe()+rand()%9)+1)*2);else cout <<"Stwór nie trafił | ";
+            }else if(f=="2"){
+            if(acc<p.getAccuracy()) e.getDamage(((p.getDMGWe()+rand()%9)+1));else cout << "Nie trafiłeś | ";
+            if(acc<e.getAccuracy()) p.getDamage(((e.getDMGWe()+rand()%9)+1));else cout <<"Stwór nie trafił | ";
+            }else if(f=="3"){
+            if(acc<p.getAccuracy()) e.getDamage(((p.getDMGWe()+rand()%9)+1)/2);else cout << "Nie trafiłeś | ";
+            if(acc<e.getAccuracy()) p.getDamage(((e.getDMGWe()+rand()%9)+1)/2);else cout <<"Stwór nie trafił | ";
+            }
+            if(e.isDead()) {
+                if(e.getReward()=="magic") p.setMagic(p.getMagic()+e.getValue());
+                if(e.getReward()=="money") p.setMoney(p.getMoney()+e.getValue());
+                if(e.getReward()=="dmg") if(e.getValue()>p.getDMGWe()) p.setDMG(e.getValue());
+                if(e.getReward()=="life") p.setLife(p.getLife()+e.getValue());
+                return e.getRoom();
+            }
+            else {
+                cout<<"Pozostałe życie przeciwnika: "<<e.getLife();
+                return p.getPlayerPosition();
+        }
+    }
+    private:
+        Enemy e;
+};
+    //fight declaration = life,room,dmg,RewardType,RewardValue,Accuracy
+    RoomFight Rd("p0",20,&r5,10,"dmg",45,20);
 
 class Game {
     
@@ -55,12 +70,15 @@ public:
     test room =layout of room, back, success, failure, -1,test dificult(1,2,5),
     Reward type(magic,money,life,dmg),Reward value 
     */
-    r3.setRoomAtrib(&r1,&r6,&r7,-1,1,"money",10);
-    r4.setRoomAtrib(&r1,&r1,&r1);
+    r3.setRoomAtrib(&r1,&r6,&r7,-1,1,"magic",10);
+    r4.setRoomAtrib(&r4,&r8,&r9,-1,5,"money",20);
     r5.setRoomAtrib(&r1,&r1,&r1);
     r6.setRoomAtrib(&r1,&r1,&r1);
     r7.setRoomAtrib(&r1,&r1,&r1);
+    r8.setRoomAtrib(&r1,&r1,&r1);
+    r9.setRoomAtrib(&r1,&r1,&r1);
     rEnd.setRoomAtrib(&r1,&r1,&r1);
+    p1.setAccuracy(30);
     p1.setMagic(30);
     p1.setMoney(30);
     p1.setDMG(30);
@@ -100,11 +118,13 @@ public:
                 if(RewardType=="money") t=p1.getMoney();
                 if(RewardType=="dmg") t=p1.getDMGWe();
                 if(RewardType=="life") t=p1.getLife();
+                if(RewardType=="accuracy") t=p1.getAccuracy();
                 t = (p1.getPlayerPosition())->Test(t);
                 if(RewardType=="magic") p1.setMagic(p1.getMagic()+t);
                 if(RewardType=="money") p1.setMoney(p1.getMoney()+t);
                 if(RewardType=="dmg") p1.setDMG(p1.getDMGWe()+t);
                 if(RewardType=="life") p1.setLife(p1.getLife()+t);
+                if(RewardType=="accuracy") p1.setAccuracy(p1.getAccuracy()+t);
                 return (p1.getPlayerPosition())->getResult();
             }
             }

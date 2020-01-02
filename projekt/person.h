@@ -25,7 +25,14 @@ class Person{
     int getDMGWe(){
         return dmgWea;
     }
+    void setAccuracy(int ac){
+        accuracy=ac;
+    }
+    int getAccuracy(){
+        return accuracy;
+    }
     protected:
+    int accuracy;
     int dmgWea;
     float life;
 };
