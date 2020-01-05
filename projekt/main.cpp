@@ -8,8 +8,6 @@ string decision;
 RoomCorr* room;
 Game game1;
 
-
-
 while(!game1.getPlayer().isDead()){
 cin>>decision;
 if(decision=="1"||decision=="2"||decision=="3"){

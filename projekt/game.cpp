@@ -3,17 +3,17 @@
 
 using namespace std;
 
-    RoomCorr f("rWalka");
-    RoomCorr r1("r1");
-    RoomCorr r2("r2");
-    RoomCorr r3("r3");
-    RoomCorr r4("r4");
-    RoomCorr r5("r5");
-    RoomCorr r6("r6");
-    RoomCorr r7("r7");
-    RoomCorr r8("r8");
-    RoomCorr r9("r9");
-    RoomCorr rEnd("rEnd");
+RoomCorr f("rWalka");
+RoomCorr r1("r1");
+RoomCorr r2("r2");
+RoomCorr r3("r3");
+RoomCorr r4("r4");
+RoomCorr r5("r5");
+RoomCorr r6("r6");
+RoomCorr r7("r7");
+RoomCorr r8("r8");
+RoomCorr r9("r9");
+RoomCorr rEnd("rEnd");
 
 class RoomFight:public Room{
     public:
@@ -54,9 +54,7 @@ class RoomFight:public Room{
     }
     private:
         Enemy e;
-};
-    //fight declaration = life,room,dmg,RewardType,RewardValue,Accuracy
-    RoomFight Rd("p0",20,&r5,10,"dmg",40,10);
+    };
 
 class Game {
     
@@ -136,9 +134,9 @@ public:
             return (p1.getPlayerPosition())->go(d);
         
         }
-private:
+    private:
 
-    vector <RoomFight>Rf;
-    Player p1;
-};
+        vector <RoomFight>Rf;
+        Player p1;
+    };
 
