@@ -62,6 +62,8 @@ class Game {
     
 public:
     Game(){
+    //fight declaration = life,room,dmg,RewardType,RewardValue,Accuracy
+    RoomFight Rd("p0",20,&r5,10,"dmg",40,10);
     Rf.push_back(Rd);
     f.setRoomAtrib(&f,&f,&f);
     r1.setRoomAtrib(&r2,&r3,&r4);
@@ -124,6 +126,10 @@ public:
                 if(RewardType=="dmg") p1.setDMG(p1.getDMGWe()+t);
                 if(RewardType=="life") p1.setLife(p1.getLife()+t);
                 if(RewardType=="accuracy") p1.setAccuracy(p1.getAccuracy()+t);
+                if(p1.getMoney()<=0)p1.setMoney(1);
+                if(p1.getDMGWe()<5)p1.setDMG(5);
+                if(p1.getAccuracy()<0)return &rEnd;
+                if(p1.getMagic()<0)return &rEnd;
                 return (p1.getPlayerPosition())->getResult();
             }
             }
@@ -134,6 +140,5 @@ private:
 
     vector <RoomFight>Rf;
     Player p1;
-    //vector <RoomCorr>RoomsCorr;
 };
 
