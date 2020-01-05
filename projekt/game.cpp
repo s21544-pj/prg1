@@ -56,7 +56,7 @@ class RoomFight:public Room{
         Enemy e;
 };
     //fight declaration = life,room,dmg,RewardType,RewardValue,Accuracy
-    RoomFight Rd("p0",20,&r5,10,"dmg",45,20);
+    RoomFight Rd("p0",20,&r5,10,"dmg",40,10);
 
 class Game {
     
@@ -104,8 +104,6 @@ public:
     }
 
     RoomCorr* passLogic(string d){
-        if(p1.isDead()) return &rEnd; else {
-
         if(p1.getPlayerPosition()==&f){
             return Rf[(p1.getTempPos())->getFightNumber()].fight(d,p1);
         }
@@ -130,8 +128,8 @@ public:
             }
             }
             return (p1.getPlayerPosition())->go(d);
+        
         }
-    }
 private:
 
     vector <RoomFight>Rf;

@@ -1,8 +1,18 @@
-***
-*   Pomieszcze nr1
-*
-*
-***
-1    idz na polnoc
-2    idz na zachow
-3    idz na wschod
+***                                                                     ***
+*               Zostajesz wysłany z misją wielkiej wagi                   *
+*      Księżna Zosia została porwana przez przeciwnika królestwa          *
+*               Wroga publicznego nr 1 Barona vel Borysa                  *
+*    Twoim zadaniem jest ją czym prędzej sprowadzić z powrotem na zamek   *
+*                   i wymierzyć zasłużoną karę Baronowi                   *
+*                   Nie marnując czasu ruszasz w podróż                   *
+***                                                                     ***
+    Po kilku godzinach jazdy stajesz przed wejściem do wrogich podziemi 
+                    Najpewniej tu ukrywa się Borys
+                           Przechodzisz próg
+                                    .
+                                    .
+                                    .
+                            Gdzie udasz się dalej?
+1    Pójdę słabo oświetlonym przejściem prowadzącym w lewo
+2    Skieruję się do lekko migoczącej na niebiesko bramy znajdującej się na wprost
+3    Idę korytarzem na prawo,na którego końcu widać ciemną komnatę

@@ -1,7 +1,8 @@
 ///
 / Pomieszczenie nr2
 /
-/ Widzisz rozpedzaca w twoim kierunku fretke co robisz?
+/ Widzisz biegnącego w Twoją stronę spanikowanego goblina
+/ Co robisz?
 ///
 1. Atakuje
 2. Uciekam

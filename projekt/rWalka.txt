@@ -1,4 +1,10 @@
-**** WALKA ****
+                        **** WALKA ****
 Żeby atakować bez osłony naciśnij 1,
 Żeby zaatakować w normalny sposób wciśnij 2,
 Żeby się bronić wciśij 3
+
+W każdej turze walki masz losową szansę na trafienie przeciwnika,
+tak samo jak przeciwnik Ciebie
+Komunikaty dotyczące trafień pojawiają się na górze ekranu
+Po każdej wygranej walce wzrasta Twoja zręczność,
+ale również ostrzymasz nagrodę
