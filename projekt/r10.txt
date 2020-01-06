@@ -1,0 +1,12 @@
+^^^
+Stajesz przed topornie ociosanym przejściem
+Po prawej stronie widzisz wyryty w kamieniu, częściowo zatarty napis 
+    |\ |\ |\ | |\ |~\  |  /|\ 
+    |  |\ |< | |/ |_| `|   | 
+    |  |  |/ | |\ |||  |`  | 
+Co robisz?
+^^^
+1.Wracam do pokoju z łupami
+2.Przechodzę przez próg kierując się w lewą stronę
+3.Przechodzę przez próg kierując się w prawą stronę
+

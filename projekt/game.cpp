@@ -13,6 +13,22 @@ RoomCorr r6("r6");
 RoomCorr r7("r7");
 RoomCorr r8("r8");
 RoomCorr r9("r9");
+RoomCorr r10("r10");
+RoomCorr r11("r11");
+RoomCorr r12("r12");
+RoomCorr r13("r13");
+RoomCorr r14("r14");
+RoomCorr r15("r15");
+RoomCorr r16("r16");
+RoomCorr r17("r17");
+RoomCorr r18("r18");
+RoomCorr r19("r19");
+RoomCorr r20("r20");
+RoomCorr r21("r21");
+RoomCorr r22("r22");
+RoomCorr r23("r23");
+RoomCorr r24("r24");
+RoomCorr r25("r25");
 RoomCorr rEnd("rEnd");
 
 class RoomFight:public Room{
@@ -66,18 +82,34 @@ public:
     f.setRoomAtrib(&f,&f,&f);
     r1.setRoomAtrib(&r2,&r3,&r4);
     //0,back,cos innego,fight room
-    r2.setRoomAtrib(&f,&r1,&rEnd,0);
+    r2.setRoomAtrib(&f,&r1,&r1,0);
     /*
     test room =layout of room, back, success, failure, -1,test dificult(1,2,5),
     Reward type(magic,money,life,dmg),Reward value 
     */
     r3.setRoomAtrib(&r1,&r6,&r7,-1,1,"magic",10);
-    r4.setRoomAtrib(&r4,&r8,&r9,-1,5,"money",20);
-    r5.setRoomAtrib(&r1,&r1,&r1);
-    r6.setRoomAtrib(&r1,&r1,&r1);
-    r7.setRoomAtrib(&r1,&r1,&r1);
-    r8.setRoomAtrib(&r1,&r1,&r1);
-    r9.setRoomAtrib(&r1,&r1,&r1);
+    r4.setRoomAtrib(&r1,&r8,&r9,-1,5,"money",20);
+    r5.setRoomAtrib(&r10,&r13,&r13);
+    r6.setRoomAtrib(&r13,&r13,&r13);
+    r7.setRoomAtrib(&r13,&r13,&r13);
+    r8.setRoomAtrib(&r14,&r14,&r14);
+    r9.setRoomAtrib(&r14,&r14,&r14);
+    r10.setRoomAtrib(&r5,&r11,&r12);
+    r11.setRoomAtrib(&r10,&r15,&r15);
+    r12.setRoomAtrib(&r10,&r16,&r16,-1,0.1,"life",40);
+    r13.setRoomAtrib(&r1,&r1,&r1);//
+    r14.setRoomAtrib(&r1,&r1,&r1);//
+    r15.setRoomAtrib(&r11,&r19,&r20,-1,1,"dmg",10);
+    r16.setRoomAtrib(&r17,&r22,&r22);
+    r17.setRoomAtrib(&r16,&r18,&r18);
+    r18.setRoomAtrib(&r17,&r18,&r13);
+    r19.setRoomAtrib(&r21,&r21,&r21);
+    r20.setRoomAtrib(&r21,&r21,&r21);
+    r21.setRoomAtrib(&r21,&r25,&r25);
+    r22.setRoomAtrib(&r16,&r23,&r24,-1,1,"magic",5);
+    r23.setRoomAtrib(&r25,&r25,&r25);
+    r24.setRoomAtrib(&r22,&r25,&r25);
+    r25.setRoomAtrib(&r22,&r21,&r1);
     rEnd.setRoomAtrib(&r1,&r1,&r1);
     p1.setAccuracy(30);
     p1.setMagic(30);

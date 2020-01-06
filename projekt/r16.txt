@@ -1,0 +1,6 @@
+Natrafiasz na rozwidlenie
+Ścieżka na lewo prowadzi pod górę
+zaś ścieżka na prawo w dół
+
+1.Idę w lewo
+2.Idę w prawo

@@ -1,5 +1,5 @@
 '''
-' Na progu otrzymujesz cios..
-' 1.Uniknij i spróbuj wycofać się do poprzedniego pomieszczenia
-' 2.Stawiaj opór
+'   Na progu słyszysz inkantacje jakiegoś zaklęcia
+'   1.Ucieknij do poprzedniego pomieszczenia zanim skończy
+'   2.Spróbuj obezwładnić przeciwnika
 '''

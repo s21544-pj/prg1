@@ -31,7 +31,7 @@ protected:
 class RoomCorr:public Room{
 public:
     RoomCorr(string n):Room(n){};
-    void setRoomAtrib(RoomCorr* a,RoomCorr* b,RoomCorr* c,int f=-1,int tr=-1,string type="",int value=-1){
+    void setRoomAtrib(RoomCorr* a,RoomCorr* b,RoomCorr* c,int f=-1,float tr=-1,string type="",int value=-1){
         roomDirection.push_back(a);
         roomDirection.push_back(b);
         roomDirection.push_back(c);
@@ -43,7 +43,7 @@ public:
             RewardValue=value;
         };
     }
-    int getTr(){
+    float getTr(){
         return TestDificult;
     }
     string getRewardType(){
@@ -79,7 +79,7 @@ public:
     private:
     RoomCorr* result;
     int fight;
-    int TestDificult;
+    float TestDificult;
     int RewardValue;
     string RewardType;
     vector <RoomCorr*> roomDirection;
