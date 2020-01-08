@@ -1,1 +1,9 @@
-widzisz pokój ze stawem
+Pojawiasz się w pokoju z bajorkiem
+Ponad nim znajduję się duży komin skalny
+W lewo widzisz grubo ociosane przejście
+Na wprost udaję Ci się dostrzec podmokłą ścieżkę
+W oddali na prawo migocze zielony płomyk
+
+1.Idę w lewo
+2.Idę na wprost
+3.Idę w prawo

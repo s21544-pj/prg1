@@ -1,1 +1,6 @@
-przeciwnik
+Docierasz do pokoju z którego widzisz dwa wyjścia
+Jedno prowadzi do zielonego ognika
+Drugie do dziwnego, podziemnego bajora
+
+1.Idę do ognika
+2.Idę do wody

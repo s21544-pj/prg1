@@ -29,7 +29,18 @@ RoomCorr r22("r22");
 RoomCorr r23("r23");
 RoomCorr r24("r24");
 RoomCorr r25("r25");
+RoomCorr r26("r26");
+RoomCorr r27("r27");
+RoomCorr r28("r28");
+RoomCorr r29("r29");
+RoomCorr r30("r30");
+RoomCorr r31("r31");
+RoomCorr r32("r32");
+RoomCorr r33("r33");
+RoomCorr r34("r34");
 RoomCorr rEnd("rEnd");
+RoomCorr rEndAccuracy("rEnd");
+RoomCorr rEndMagic("rEnd");
 
 class RoomFight:public Room{
     public:
@@ -78,7 +89,9 @@ public:
     Game(){
     //fight declaration = life,room,dmg,RewardType,RewardValue,Accuracy
     RoomFight Rd("p0",20,&r5,10,"dmg",40,10);
+    RoomFight Rd2("p1",30,&r28,20,"life",40,50);
     Rf.push_back(Rd);
+    Rf.push_back(Rd2);
     f.setRoomAtrib(&f,&f,&f);
     r1.setRoomAtrib(&r2,&r3,&r4);
     //0,back,cos innego,fight room
@@ -97,8 +110,8 @@ public:
     r10.setRoomAtrib(&r5,&r11,&r12);
     r11.setRoomAtrib(&r10,&r15,&r15);
     r12.setRoomAtrib(&r10,&r16,&r16,-1,0.1,"life",40);
-    r13.setRoomAtrib(&r1,&r1,&r1);//
-    r14.setRoomAtrib(&r1,&r1,&r1);//
+    r13.setRoomAtrib(&r5,&r26,&r27);
+    r14.setRoomAtrib(&r27,&r13,&r13);
     r15.setRoomAtrib(&r11,&r19,&r20,-1,1,"dmg",10);
     r16.setRoomAtrib(&r17,&r22,&r22);
     r17.setRoomAtrib(&r16,&r18,&r18);
@@ -110,7 +123,18 @@ public:
     r23.setRoomAtrib(&r25,&r25,&r25);
     r24.setRoomAtrib(&r22,&r25,&r25);
     r25.setRoomAtrib(&r22,&r21,&r1);
-    rEnd.setRoomAtrib(&r1,&r1,&r1);
+    r26.setRoomAtrib(&r13,&f,&f,1);
+    r27.setRoomAtrib(&r13,&r29,&r30,-1,1,"magic",10);
+    r28.setRoomAtrib(&r34,&r32,&r33,-1,1,"accuracy",20);
+    r29.setRoomAtrib(&r31,&r31,&r31);
+    r30.setRoomAtrib(&r27,&r31,&r31);
+    r31.setRoomAtrib(&r1,&r1,&r1);//
+    r32.setRoomAtrib(&r34,&r34,&r34);
+    r33.setRoomAtrib(&r34,&r34,&r34);
+    r34.setRoomAtrib(&r1,&r1,&r1);//
+    rEnd.setRoomAtrib(&rEnd,&rEnd,&rEnd);
+    rEndAccuracy.setRoomAtrib(&rEnd,&rEnd,&rEnd);
+    rEndMagic.setRoomAtrib(&rEnd,&rEnd,&rEnd);
     p1.setAccuracy(30);
     p1.setMagic(30);
     p1.setMoney(30);
@@ -158,8 +182,8 @@ public:
                 if(RewardType=="accuracy") p1.setAccuracy(p1.getAccuracy()+t);
                 if(p1.getMoney()<=0)p1.setMoney(1);
                 if(p1.getDMGWe()<5)p1.setDMG(5);
-                if(p1.getAccuracy()<0)return &rEnd;
-                if(p1.getMagic()<0)return &rEnd;
+                if(p1.getAccuracy()<=0)return &rEndAccuracy;
+                if(p1.getMagic()<=0)return &rEndMagic;
                 return (p1.getPlayerPosition())->getResult();
             }
             }
