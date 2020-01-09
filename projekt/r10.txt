@@ -6,7 +6,7 @@ Po prawej stronie widzisz wyryty w kamieniu, częściowo zatarty napis
     |  |  |/ | |\ |||  |`  | 
 Co robisz?
 ^^^
-1.Wracam do pokoju z łupami
+1.Odchodzę, w stronę wody
 2.Przechodzę przez próg kierując się w lewą stronę
 3.Przechodzę przez próg kierując się w prawą stronę
 

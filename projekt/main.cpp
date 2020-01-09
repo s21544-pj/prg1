@@ -8,7 +8,7 @@ string decision;
 RoomCorr* room;
 Game game1;
 
-while(!game1.getPlayer().isDead()){
+while(!game1.getPlayer().isDead()||game1.getPlayer().getMagic()>=100){
 cin>>decision;
 if(decision=="1"||decision=="2"||decision=="3"){
 room=game1.passLogic(decision);
@@ -25,5 +25,6 @@ else{
 }
 }
 system("clear");
+if(game1.getPlayer().getMagic()>=100)game1.View(&r46);
 if(game1.getPlayer().isDead())game1.View(&rEnd);
 };
