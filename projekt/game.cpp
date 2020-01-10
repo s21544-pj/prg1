@@ -52,8 +52,8 @@ RoomCorr r45("r45");
 RoomCorr r46("r46");
 RoomCorr r47("r47");
 RoomCorr rEnd("rEnd");
-RoomCorr rEndAccuracy("rEnd");
-RoomCorr rEndMagic("rEnd");
+RoomCorr rEndAccuracy("rEndAccuracy");
+RoomCorr rEndMagic("rEndMagic");
 
 class RoomFight:public Room{
     public:
@@ -104,8 +104,8 @@ public:
     RoomFight Rd("p0",20,&r5,10,"dmg",40,10);
     RoomFight Rd2("p1",30,&r28,20,"life",40,50);
     RoomFight Rd3("p2",25,&r37,15,"accuracy",20,60);
-    RoomFight Rd4("p3",66,&r38,40,"dmg",66,35);
-    RoomFight Rd5("p4",100,&r46,30,"magic",100,50);
+    RoomFight Rd4("p3",40,&r38,40,"life",30,35);
+    RoomFight Rd5("p4",50,&r46,30,"magic",100,50);
     Rf.push_back(Rd);
     Rf.push_back(Rd2);
     Rf.push_back(Rd3);
@@ -165,12 +165,12 @@ public:
     rEnd.setRoomAtrib(&rEnd,&rEnd,&rEnd);
     rEndAccuracy.setRoomAtrib(&rEnd,&rEnd,&rEnd);
     rEndMagic.setRoomAtrib(&rEnd,&rEnd,&rEnd);
-    p1.setAccuracy(40);
+    p1.setAccuracy(45);
     p1.setMagic(30);
     p1.setMoney(30);
     p1.setDMG(30);
     p1.setPlayerPosition(&r1);
-    p1.setLife(50);
+    p1.setLife(60);
     View(&r1);
     }
 
